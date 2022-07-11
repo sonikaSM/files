@@ -24,12 +24,17 @@ public class Write {
         if (!f.exists()){
             System.out.println("The file does not exist! Create new? (1- yes, 0-no)");
             Scanner input=new Scanner(in);
-            if(input.equals("1")){
+            String inputs=input.nextLine();
+
+            if(inputs.equals("1")){
                 n=f.createNewFile();
                 System.out.println("The file created : "+f.getCanonicalPath());
                 Writer w=new Writer(args[0],inputt);
+                w.write();
 
-            }else{ throw new RuntimeException();}
+            }else{
+                out.println("You chose NO");
+                throw new RuntimeException();}
 
         }else{
             Writer wr=new Writer(args[0],inputt);
